@@ -1,9 +1,10 @@
 import { Component } from 'react';
+import css from './Form.module.css';
 
 class Form extends Component {
   state = {
-    inputName: '',
-    inputTel: '',
+    name: '',
+    number: '',
   };
 
   handleChange = event => {
@@ -16,6 +17,10 @@ class Form extends Component {
     this.setState({ [name]: value });
   };
 
+  reset = () => {
+    this.setState({ name: '', number: '' });
+  };
+
   handleSubmit = event => {
     event.preventDefault();
 
@@ -25,45 +30,37 @@ class Form extends Component {
     this.reset();
   };
 
-  reset = () => {
-    this.setState({ inputName: '', inputTel: '' });
-  };
-
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="inputName"
-            value={this.state.inputName}
-            onChange={this.handleChange}
-          />
-        </label>
-        <label>
-          tel:
-          <input
-            type="text"
-            name="inputTel"
-            value={this.state.inputTel}
-            onChange={this.handleChange}
-          />
-        </label>
-        <button type="submit">Add contact</button>
-      </form>
-      // <div
-      //   style={{
-      //     height: '100vh',
-      //     display: 'flex',
-      //     justifyContent: 'center',
-      //     alignItems: 'center',
-      //     fontSize: 40,
-      //     color: '#010101'
-      //   }}
-      // >
-      //   Привет МИР!
-      // </div>
+      <>
+        <h3>Phonebook</h3>
+        <form onSubmit={this.handleSubmit} className={css.form}>
+          <label className={css.label}>
+            Name:
+            <input
+              type="text"
+              name="name"
+              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+              required
+              className={css.label_input}
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+          </label>
+          <label className={css.label}>
+            tel:
+            <input
+              type="tel"
+              name="number"
+              value={this.state.number}
+              onChange={this.handleChange}
+              className={css.label_input}
+            />
+          </label>
+          <button type="submit">Add contact</button>
+        </form>
+      </>
     );
   }
 }
