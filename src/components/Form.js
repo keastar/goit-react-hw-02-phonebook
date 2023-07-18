@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import css from './Form.module.css';
+import PropTypes from 'prop-types';
 
 class Form extends Component {
   state = {
@@ -64,5 +65,13 @@ class Form extends Component {
     );
   }
 }
+
+Form.propTypes = {
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  reset: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+};
 
 export default Form;
