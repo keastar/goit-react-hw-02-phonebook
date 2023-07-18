@@ -21,7 +21,6 @@ class App extends Component {
   };
 
   formSubmitHandler = ({ name, number }) => {
-    console.log(name, number);
     const { contacts } = this.state;
 
     const found = contacts.find((contact) => contact.name.toLowerCase() === name.toLowerCase());
@@ -57,11 +56,11 @@ class App extends Component {
 
     return (
       <>
-        <Container />
+        <Container>
           <Form onSubmit={this.formSubmitHandler} />  
           <Filter value={filter} onChange={this.changeFilter} />
           <ContactList contacts={visibleContacts} ondeleteContact={this.deleteContact} />
-      
+        </Container>
       </> 
     )
   };
