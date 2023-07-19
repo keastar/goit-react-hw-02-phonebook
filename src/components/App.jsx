@@ -5,7 +5,6 @@ import Form from "./Form";
 import ContactList from "./ContactList";
 import contacts from './todos.json';
 import Container from "./Container";
-import PropTypes from 'prop-types';
 
 class App extends Component {
   state = {
