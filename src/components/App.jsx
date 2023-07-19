@@ -66,21 +66,6 @@ class App extends Component {
   };
 };
 
-App.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  filter: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  contacts: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.string.isRequired,
-      number: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-      is_complete: PropTypes.bool.isRequired,
-    })
-  ),
-  ondeleteContact: PropTypes.func.isRequired,
-};
-
 export default App;
 
 
