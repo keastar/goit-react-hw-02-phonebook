@@ -10,11 +10,6 @@ class Form extends Component {
 
   handleChange = event => {
     const { name, value } = event.currentTarget;
-
-    console.log(event.currentTarget);
-    console.log(event.currentTarget.name);
-    console.log(event.currentTarget.value);
-
     this.setState({ [name]: value });
   };
 
@@ -24,9 +19,6 @@ class Form extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
-    console.log(this.state);
-
     this.props.onSubmit(this.state);
     this.reset();
   };
@@ -67,11 +59,7 @@ class Form extends Component {
 }
 
 Form.propTypes = {
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  reset: PropTypes.func.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default Form;
